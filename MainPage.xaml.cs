@@ -19,7 +19,14 @@
 
         private void NextVideoButton_Clicked(object sender, EventArgs e)
         {
-            MainWebView.Source = $"https://www.tiktok.com/embed/{videoIds[rnd.Next(videoIds.Length)]}";
+            if (videoIds.Length < 1)
+            {
+                PickVideosFile(PickOptions.Default);
+            }
+            else
+            {
+                MainWebView.Source = $"https://www.tiktok.com/embed/{videoIds[rnd.Next(videoIds.Length)]}";
+            }
         }
 
 
@@ -34,8 +41,6 @@
             NextButton.MaximumHeightRequest = Container.Height * 0.1;
             NextButton.HeightRequest = Container.Height * 0.1;
             NextButton.BackgroundColor = Colors.Black;
-
-            PickVideosFile(PickOptions.Default);
         }
 
 
