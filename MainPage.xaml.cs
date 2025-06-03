@@ -6,13 +6,15 @@
         {
             InitializeComponent();
 
-            MainWebView.MaximumHeightRequest = 650;
+            MainWebView.MaximumHeightRequest = Container.Height * 0.5;
             NextButton.HeightRequest = 100;
         }
 
         private void Button_Clicked(object sender, EventArgs e)
         {
             MainWebView.Source = "https://www.tiktok.com/embed/7509945374615031096";
+            MainWebView.MaximumHeightRequest = Container.Height * 0.9;
+            NextButton.HeightRequest = Container.Height - MainWebView.Height;
         }
 
         //MainWebView.Source = "https://www.tiktok.com/embed/7509945374615031096";
