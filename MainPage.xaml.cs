@@ -2,19 +2,17 @@
 {
     public partial class MainPage : ContentPage
     {
-        DateTime lastClickTime = DateTime.Now;
         public MainPage()
         {
             InitializeComponent();
+
+            MainWebView.MaximumHeightRequest = 650;
+            NextButton.HeightRequest = 100;
         }
 
-        private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+        private void Button_Clicked(object sender, EventArgs e)
         {
-            if ((DateTime.Now - lastClickTime).TotalMilliseconds < 1000)
-            {
-                MainWebView.Source = "https://www.tiktok.com/embed/7509945374615031096";
-            }
-            lastClickTime = DateTime.Now;
+            MainWebView.Source = "https://www.tiktok.com/embed/7509945374615031096";
         }
 
         //MainWebView.Source = "https://www.tiktok.com/embed/7509945374615031096";
