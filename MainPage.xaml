@@ -6,7 +6,7 @@
     <StackLayout x:Name="Container">
         <WebView x:Name="MainWebView" HorizontalOptions="Fill" VerticalOptions="Fill" Source="https://www.tiktok.com/embed/7510888508546944261"/>
         <Button x:Name="StartButton" HeightRequest="100" Clicked="StartButton_Clicked" Text="Start" HorizontalOptions="Fill" VerticalOptions="Center" BackgroundColor="Black" FontAttributes="Bold" FontSize="Subtitle"/>
-        <Button x:Name="NextButton" HeightRequest="100" BackgroundColor="Transparent" VerticalOptions="End" HorizontalOptions="Fill" Clicked="NextVideoButton_Clicked"/>
+        <Button x:Name="NextButton" Text="NEXT VIDEO" TextColor="White" TextTransform="Uppercase" HeightRequest="100" BackgroundColor="Transparent" VerticalOptions="End" HorizontalOptions="Fill" Clicked="NextVideoButton_Clicked" FontAttributes="Bold" FontSize="Subtitle"/>
     </StackLayout>
 
 </ContentPage>

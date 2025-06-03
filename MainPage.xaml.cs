@@ -31,15 +31,15 @@
 
             MainWebView.MaximumHeightRequest = Container.Height * 0.9;
 
-            NextButton.MaximumHeightRequest = Container.Height - MainWebView.Height;
-            NextButton.HeightRequest = Container.Height - MainWebView.Height;
+            NextButton.MaximumHeightRequest = Container.Height * 0.1;
+            NextButton.HeightRequest = Container.Height * 0.1;
             NextButton.BackgroundColor = Colors.Black;
 
-            PickAndShow(PickOptions.Default);
+            PickVideosFile(PickOptions.Default);
         }
 
 
-        public async Task<FileResult> PickAndShow(PickOptions options)
+        public async Task<FileResult> PickVideosFile(PickOptions options)
         {
             try
             {
