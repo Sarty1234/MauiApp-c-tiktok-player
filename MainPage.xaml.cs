@@ -4,6 +4,8 @@
     {
         string[] videoIds = new string[0];
         Random rnd = new Random();
+        int randomId = 0;
+        string curentvideoID = string.Empty;
 
 
         public MainPage()
@@ -25,7 +27,12 @@
             }
             else
             {
-                MainWebView.Source = $"https://www.tiktok.com/embed/{videoIds[rnd.Next(videoIds.Length)]}";
+                randomId = rnd.Next(videoIds.Length);
+
+                MainWebView.Source = $"https://www.tiktok.com/embed/{videoIds[randomId]}";
+
+                curentvideoID = videoIds[randomId];
+                videoIds = videoIds.Where(url => url != videoIds[randomId]).ToArray();
             }
         }
 
