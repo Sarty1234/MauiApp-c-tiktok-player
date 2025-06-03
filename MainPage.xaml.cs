@@ -6,21 +6,29 @@
         {
             InitializeComponent();
 
-            MainWebView.MaximumHeightRequest = Container.Height * 0.5;
-            NextButton.HeightRequest = 100;
+            StartButton.Margin = new Thickness(0, 300, 0, 0);
+
+            MainWebView.MaximumHeightRequest = 0;
+            NextButton.MaximumHeightRequest = 0;
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private void NextVideoButton_Clicked(object sender, EventArgs e)
         {
             MainWebView.Source = "https://www.tiktok.com/embed/7509945374615031096";
-            MainWebView.MaximumHeightRequest = Container.Height * 0.9;
-            NextButton.HeightRequest = Container.Height - MainWebView.Height;
         }
 
-        //MainWebView.Source = "https://www.tiktok.com/embed/7509945374615031096";
-        //<PointerGestureRecognizer PointerMoved = "PointerGestureRecognizer_PointerMoved" />
-        //DisplayAlert("Alert", "dragged", "ok");
-        //<WebView x:Name="MainWebView" HorizontalOptions="Fill" VerticalOptions="Fill" Source="https://www.tiktok.com/embed/7510888508546944261"/>
+        private void StartButton_Clicked(object sender, EventArgs e)
+        {
+            StartButton.MaximumHeightRequest = -1;
+            StartButton.BackgroundColor = Color.FromRgba(0, 0, 0, 0);
+            StartButton.Margin = new Thickness(0, 0, 0, 0);
+
+            MainWebView.MaximumHeightRequest = Container.Height * 0.9;
+
+            NextButton.MaximumHeightRequest = Container.Height - MainWebView.Height;
+            NextButton.HeightRequest = Container.Height - MainWebView.Height;
+            NextButton.BackgroundColor = Colors.Black;
+        }
     }
 
 }
