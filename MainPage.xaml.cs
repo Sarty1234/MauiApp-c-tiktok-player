@@ -62,7 +62,7 @@
             }
             catch (Exception ex)
             {
-                // The user canceled or something went wrong
+                DisplayAlert("Alert", "Something went wrong", "ok");
             }
 
             return null;
