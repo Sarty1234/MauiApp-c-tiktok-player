@@ -2,21 +2,19 @@
 {
     public partial class MainPage : ContentPage
     {
+        DateTime lastClickTime = DateTime.Now;
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void OnSwiped(object sender, SwipedEventArgs e)
-        {
-            //MainWebView.Source = "https://www.tiktok.com/embed/7509945374615031096";
-            //DisplayAlert("Alert", "dragged", "ok");
-        }
-
         private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
         {
-            MainWebView.Source = "https://www.tiktok.com/embed/7509945374615031096";
-            //DisplayAlert("Alert", "dragged", "ok");
+            if ((DateTime.Now - lastClickTime).TotalMilliseconds < 1000)
+            {
+                MainWebView.Source = "https://www.tiktok.com/embed/7509945374615031096";
+            }
+            lastClickTime = DateTime.Now;
         }
 
         //MainWebView.Source = "https://www.tiktok.com/embed/7509945374615031096";
