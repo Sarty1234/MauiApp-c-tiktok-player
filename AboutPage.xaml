@@ -5,13 +5,8 @@
 
     <ScrollView>
         <StackLayout>
-            <Label Text="Our telegram - @Sarty123" HorizontalOptions="Center">
-                <Label.GestureRecognizers>
-                    <PointerGestureRecognizer PointerPressed="PointerGestureRecognizer_PointerPressed"/>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                </Label.GestureRecognizers>
-            </Label>
-            <Label x:Name="but" Text="Our tiktok - @duty_petro" HorizontalOptions="Center"/>
+            <Label Text="Our telegram - @Sarty123" HorizontalOptions="Center"/>
+            <Label Text="Our tiktok - @duty_petro" HorizontalOptions="Center"/>
         </StackLayout>
     </ScrollView>
 
