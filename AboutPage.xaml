@@ -7,6 +7,7 @@
         <StackLayout>
             <Label Text="Telegram - @Sarty123" HorizontalOptions="Center" FontSize="Subtitle" FontAttributes="Bold"/>
             <Label Text="Tiktok - @duty_petro" HorizontalOptions="Center" FontSize="Subtitle" FontAttributes="Bold"/>
+            <Label Text="GitHub - Sarty1234" HorizontalOptions="Center" FontSize="Subtitle" FontAttributes="Bold"/>
         </StackLayout>
     </ScrollView>
 
