@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MauiApp_c__tiktok_player.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MauiApp_c__tiktok_player"
+    Shell.FlyoutBehavior="Flyout"
+    Title="TTPR">
+
+    <ShellContent
+        Title="TTRP"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="TTPR" />
+    <ShellContent
+        Title="About Us"
+        ContentTemplate="{DataTemplate local:AboutPage}"
+        Route="About Us" />
+
+</Shell>
