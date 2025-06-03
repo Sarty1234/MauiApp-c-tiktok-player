@@ -5,8 +5,8 @@
 
     <ScrollView>
         <StackLayout>
-            <Label Text="Our telegram - @Sarty123" HorizontalOptions="Center"/>
-            <Label Text="Our tiktok - @duty_petro" HorizontalOptions="Center"/>
+            <Label Text="Our telegram - @Sarty123" HorizontalOptions="Center" FontSize="Subtitle" FontAttributes="Bold"/>
+            <Label Text="Our tiktok - @duty_petro" HorizontalOptions="Center" FontSize="Subtitle" FontAttributes="Bold"/>
         </StackLayout>
     </ScrollView>
 
