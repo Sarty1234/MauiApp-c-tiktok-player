@@ -4,7 +4,7 @@
              x:Class="MauiApp_c__tiktok_player.AboutPage">
 
     <ScrollView>
-        <StackLayout>
+        <StackLayout Margin="0, 100, 0, 0">
             <Label Text="Telegram - @Sarty123" HorizontalOptions="Center" FontSize="Subtitle" FontAttributes="Bold"/>
             <Label Text="Tiktok - @duty_petro" HorizontalOptions="Center" FontSize="Subtitle" FontAttributes="Bold"/>
             <Label Text="GitHub - Sarty1234" HorizontalOptions="Center" FontSize="Subtitle" FontAttributes="Bold"/>

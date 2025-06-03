@@ -5,7 +5,7 @@
         string[] videoIds = new string[0];
         Random rnd = new Random();
         int randomId = 0;
-        string curentvideoID = string.Empty;
+        string curentvideoID = "7510888508546944261";
 
 
         public MainPage()
@@ -16,6 +16,10 @@
 
             MainWebView.MaximumHeightRequest = 0;
             NextButton.MaximumHeightRequest = 0;
+            ReloadVideoButton.MaximumHeightRequest = 0;
+            VideoNavigationContainer.MaximumHeightRequest = 0;
+
+            MainWebView.Source = $"https://www.tiktok.com/embed/{curentvideoID}";
         }
 
 
@@ -36,6 +40,11 @@
             }
         }
 
+        private void ReloadVideoButton_Clicked(object sender, EventArgs e)
+        {
+            MainWebView.Source = $"https://www.tiktok.com/embed/{curentvideoID}";
+        }
+
 
         private void StartButton_Clicked(object sender, EventArgs e)
         {
@@ -45,8 +54,19 @@
 
             MainWebView.MaximumHeightRequest = Container.Height * 0.9;
 
+
+
+            VideoNavigationContainer.MaximumHeightRequest = Container.Height * 0.1;
+            VideoNavigationContainer.HeightRequest = Container.Height * 0.1;
+
+            ReloadVideoButton.MaximumHeightRequest = Container.Height * 0.1;
+            ReloadVideoButton.HeightRequest = Container.Height * 0.1;
+            ReloadVideoButton.WidthRequest = Container.Height * 0.1;
+            ReloadVideoButton.BackgroundColor = Colors.Black;
+
             NextButton.MaximumHeightRequest = Container.Height * 0.1;
             NextButton.HeightRequest = Container.Height * 0.1;
+            NextButton.WidthRequest = Container.Width - Container.Height * 0.1;
             NextButton.BackgroundColor = Colors.Black;
         }
 
