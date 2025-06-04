@@ -2,68 +2,104 @@
 {
     public partial class MainPage : ContentPage
     {
+        // Declares variables
         string[] videoIds = new string[0];
         Random rnd = new Random();
         int randomId = 0;
-        string curentvideoID = "7510888508546944261";
+        string curentvideoID = "7511789646825753912";    // Tutorial video Id
 
 
         public MainPage()
         {
             InitializeComponent();
 
+            // Positions StartButton at center
             StartButton.Margin = new Thickness(0, 300, 0, 0);
 
+            // Hides webview, video navigation container and buttons
             MainWebView.MaximumHeightRequest = 0;
             NextButton.MaximumHeightRequest = 0;
             ReloadVideoButton.MaximumHeightRequest = 0;
             VideoNavigationContainer.MaximumHeightRequest = 0;
 
+            // Sets link to tutorial video
             MainWebView.Source = $"https://www.tiktok.com/embed/{curentvideoID}";
         }
 
 
+        /// <summary>
+        /// Function is called when next video button is pressed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NextVideoButton_Clicked(object sender, EventArgs e)
         {
-            if (videoIds.Length < 1)
+            if (videoIds.Length < 1)  //Over here checks if there is no video link in videoIds
             {
+                // If there is no link in array it calls file dialog to fill videoIds
                 PickVideosFile(PickOptions.Default);
             }
             else
             {
+                // If there is at least one link it will pick one random
                 randomId = rnd.Next(videoIds.Length);
 
+                // Here it assigns new url for webview
                 MainWebView.Source = $"https://www.tiktok.com/embed/{videoIds[randomId]}";
 
+                // Here it saves curent video Id and deletes it from array to avoid reiterance
                 curentvideoID = videoIds[randomId];
                 videoIds = videoIds.Where(url => url != videoIds[randomId]).ToArray();
             }
         }
 
+
+        /// <summary>
+        /// Function is called when reload button is pressed. It will set link to last embed video Id saved in curentvideoID
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ReloadVideoButton_Clicked(object sender, EventArgs e)
         {
             MainWebView.Source = $"https://www.tiktok.com/embed/{curentvideoID}";
         }
 
 
+        /// <summary>
+        /// Function is called when start button is pressed. It will simply call SETUIScales()
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void StartButton_Clicked(object sender, EventArgs e)
         {
+            SETUIScales();
+        }
+
+
+        /// <summary>
+        /// This function sets scale and position for all UI elements
+        /// </summary>
+        private void SETUIScales()
+        {
+            // Hides StartButton
             StartButton.MaximumHeightRequest = -1;
             StartButton.BackgroundColor = Color.FromRgba(0, 0, 0, 0);
             StartButton.Margin = new Thickness(0, 0, 0, 0);
 
+            // Sets height of webview
             MainWebView.MaximumHeightRequest = Container.Height * 0.9;
 
-
-
+            // Shows Navigation Container
             VideoNavigationContainer.MaximumHeightRequest = Container.Height * 0.1;
             VideoNavigationContainer.HeightRequest = Container.Height * 0.1;
 
+            // Shows Reload video button and changes its size
             ReloadVideoButton.MaximumHeightRequest = Container.Height * 0.1;
             ReloadVideoButton.HeightRequest = Container.Height * 0.1;
             ReloadVideoButton.WidthRequest = Container.Height * 0.1;
             ReloadVideoButton.BackgroundColor = Colors.Black;
 
+            // Shows Next video button and changes its size
             NextButton.MaximumHeightRequest = Container.Height * 0.1;
             NextButton.HeightRequest = Container.Height * 0.1;
             NextButton.WidthRequest = Container.Width - Container.Height * 0.1;
@@ -71,6 +107,11 @@
         }
 
 
+        /// <summary>
+        /// This functions opens file dialog and parses all video links saving them in videoIds array
+        /// </summary>
+        /// <param name="options">File pick options(just use defoult)</param>
+        /// <returns></returns>
         public async Task<FileResult> PickVideosFile(PickOptions options)
         {
             try
