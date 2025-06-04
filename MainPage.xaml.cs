@@ -66,17 +66,6 @@
 
 
         /// <summary>
-        /// Function is called when start button is pressed. It will simply call SETUIScales()
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void StartButton_Clicked(object sender, EventArgs e)
-        {
-            SETUIScales();
-        }
-
-
-        /// <summary>
         /// This function sets scale and position for all UI elements
         /// </summary>
         private void SETUIScales()
@@ -141,11 +130,6 @@
             return null;
         }
 
-        private void MainWebView_SizeChanged(object sender, EventArgs e)
-        {
-            double i = 0;
-            i = MainWebView.Height;
-        }
 
         private void StartButton_SizeChanged(object sender, EventArgs e)
         {
