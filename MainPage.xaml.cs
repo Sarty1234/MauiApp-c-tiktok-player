@@ -131,6 +131,11 @@
         }
 
 
+        /// <summary>
+        /// Function is called when start button is loaded. If button size is not 0 function will call SETUIScales()
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void StartButton_SizeChanged(object sender, EventArgs e)
         {
             double i = 0;
