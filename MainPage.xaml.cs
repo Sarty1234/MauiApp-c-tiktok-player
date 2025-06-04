@@ -6,7 +6,7 @@
         string[] videoIds = new string[0];
         Random rnd = new Random();
         int randomId = 0;
-        string curentvideoID = "7511789646825753912";    // Tutorial video Id
+        string curentvideoID = "7512001022907206968";    // Tutorial video Id
 
 
         public MainPage()
