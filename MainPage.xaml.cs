@@ -17,7 +17,7 @@
             StartButton.Margin = new Thickness(0, 300, 0, 0);
 
             // Hides webview, video navigation container and buttons
-            MainWebView.MaximumHeightRequest = 0;
+            //MainWebView.MaximumHeightRequest = 0;
             NextButton.MaximumHeightRequest = 0;
             ReloadVideoButton.MaximumHeightRequest = 0;
             VideoNavigationContainer.MaximumHeightRequest = 0;
@@ -139,6 +139,23 @@
             }
 
             return null;
+        }
+
+        private void MainWebView_SizeChanged(object sender, EventArgs e)
+        {
+            double i = 0;
+            i = MainWebView.Height;
+        }
+
+        private void StartButton_SizeChanged(object sender, EventArgs e)
+        {
+            double i = 0;
+            i = MainWebView.Height;
+
+            if (i > 0)
+            {
+                SETUIScales();
+            }
         }
     }
 
