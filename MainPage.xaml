@@ -3,13 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp_c__tiktok_player.MainPage">
 
-    <StackLayout x:Name="Container">
-        <WebView x:Name="MainWebView" HorizontalOptions="Fill" VerticalOptions="Fill" Source="https://www.tiktok.com/embed/"/>
-        <Button x:Name="StartButton" SizeChanged="StartButton_SizeChanged" BackgroundColor="Transparent" TextColor="Transparent" HeightRequest="1" WidthRequest="1"/>
-        <HorizontalStackLayout x:Name="VideoNavigationContainer" HeightRequest="100" VerticalOptions="End" HorizontalOptions="Fill" >
-            <Button x:Name="ReloadVideoButton" Text="R" TextColor="White" TextTransform="Uppercase" HeightRequest="100" BackgroundColor="Transparent" VerticalOptions="End" HorizontalOptions="Fill" Clicked="ReloadVideoButton_Clicked" FontAttributes="Bold" FontSize="Subtitle"/>
-            <Button x:Name="NextButton" Text="NEXT VIDEO" TextColor="White" TextTransform="Uppercase" HeightRequest="100" BackgroundColor="Transparent" VerticalOptions="End" HorizontalOptions="Fill" Clicked="NextVideoButton_Clicked" FontAttributes="Bold" FontSize="Subtitle"/>
-        </HorizontalStackLayout>
-    </StackLayout>
+    <Grid x:Name="Container" RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        
+        
+        <WebView x:Name="MainWebView" Grid.Row="0" HorizontalOptions="Fill" VerticalOptions="Fill" Source="https://www.tiktok.com/embed/"/>
+        <Grid x:Name="VideoNavigationContainer" Grid.Row="1" BackgroundColor="Transparent" VerticalOptions="Fill" HorizontalOptions="Fill" ColumnSpacing="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" x:Name="ReloadVideoButton" Text="R" TextColor="White" BackgroundColor="Black" TextTransform="Uppercase" VerticalOptions="Fill" HorizontalOptions="Fill" Clicked="ReloadVideoButton_Clicked" FontAttributes="Bold" FontSize="Subtitle"/>
+            <Button Grid.Column="1" x:Name="NextButton" Text="NEXT VIDEO" BackgroundColor="Black" TextColor="White" TextTransform="Uppercase" VerticalOptions="Fill" HorizontalOptions="Fill" Clicked="NextVideoButton_Clicked" FontAttributes="Bold" FontSize="Subtitle"/>
+        </Grid>
+    </Grid>
 
 </ContentPage>

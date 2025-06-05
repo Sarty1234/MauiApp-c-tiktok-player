@@ -13,15 +13,6 @@
         {
             InitializeComponent();
 
-            // Positions StartButton at center
-            StartButton.Margin = new Thickness(0, 300, 0, 0);
-
-            // Hides webview, video navigation container and buttons
-            //MainWebView.MaximumHeightRequest = 0;
-            NextButton.MaximumHeightRequest = 0;
-            ReloadVideoButton.MaximumHeightRequest = 0;
-            VideoNavigationContainer.MaximumHeightRequest = 0;
-
             // Sets link to tutorial video
             MainWebView.Source = $"https://www.tiktok.com/embed/{curentvideoID}";
         }
@@ -66,37 +57,6 @@
 
 
         /// <summary>
-        /// This function sets scale and position for all UI elements
-        /// </summary>
-        private void SETUIScales()
-        {
-            // Hides StartButton
-            StartButton.MaximumHeightRequest = -1;
-            StartButton.BackgroundColor = Color.FromRgba(0, 0, 0, 0);
-            StartButton.Margin = new Thickness(0, 0, 0, 0);
-
-            // Sets height of webview
-            MainWebView.MaximumHeightRequest = Container.Height * 0.9;
-
-            // Shows Navigation Container
-            VideoNavigationContainer.MaximumHeightRequest = Container.Height * 0.1;
-            VideoNavigationContainer.HeightRequest = Container.Height * 0.1;
-
-            // Shows Reload video button and changes its size
-            ReloadVideoButton.MaximumHeightRequest = Container.Height * 0.1;
-            ReloadVideoButton.HeightRequest = Container.Height * 0.1;
-            ReloadVideoButton.WidthRequest = Container.Height * 0.1;
-            ReloadVideoButton.BackgroundColor = Colors.Black;
-
-            // Shows Next video button and changes its size
-            NextButton.MaximumHeightRequest = Container.Height * 0.1;
-            NextButton.HeightRequest = Container.Height * 0.1;
-            NextButton.WidthRequest = Container.Width - Container.Height * 0.1;
-            NextButton.BackgroundColor = Colors.Black;
-        }
-
-
-        /// <summary>
         /// This functions opens file dialog and parses all video links saving them in videoIds array
         /// </summary>
         /// <param name="options">File pick options(just use defoult)</param>
@@ -128,23 +88,6 @@
             }
 
             return null;
-        }
-
-
-        /// <summary>
-        /// Function is called when start button is loaded. If button size is not 0 function will call SETUIScales()
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void StartButton_SizeChanged(object sender, EventArgs e)
-        {
-            double i = 0;
-            i = MainWebView.Height;
-
-            if (i > 0)
-            {
-                SETUIScales();
-            }
         }
     }
 
