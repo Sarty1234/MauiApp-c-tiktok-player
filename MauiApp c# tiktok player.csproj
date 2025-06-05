@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net9.0-android;net9.0-ios;net9.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks>net9.0-android</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-windows10.0.19041.0</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net9.0-tizen</TargetFrameworks> -->
@@ -39,26 +39,82 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
-		<AndroidSigningKeyStore>FirstKeyPlayMarket.keystore</AndroidSigningKeyStore>
-		<PlatformTarget>ARM64</PlatformTarget>
+		<AndroidSigningKeyStore>myapp.keystore</AndroidSigningKeyStore>
+		<PlatformTarget>AnyCPU</PlatformTarget>
+		<Platforms>AnyCPU;ARM64;x64</Platforms>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-android|AnyCPU'">
 	  <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
-	  <AndroidKeyStore>False</AndroidKeyStore>
+	  <AndroidKeyStore>True</AndroidKeyStore>
 	  <AndroidSigningStorePass>vsif2008</AndroidSigningStorePass>
 	  <ApplicationId>com.svp.ttrp</ApplicationId>
 	  <ApplicationTitle>TTRP</ApplicationTitle>
+	  <AndroidSigningKeyAlias>myapp</AndroidSigningKeyAlias>
+	  <AndroidSigningKeyPass>vsif2008</AndroidSigningKeyPass>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-android|x64'">
+	  <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
+	  <AndroidKeyStore>True</AndroidKeyStore>
+	  <AndroidSigningStorePass>vsif2008</AndroidSigningStorePass>
+	  <ApplicationId>com.svp.ttrp</ApplicationId>
+	  <ApplicationTitle>TTRP</ApplicationTitle>
+	  <AndroidSigningKeyAlias>myapp</AndroidSigningKeyAlias>
+	  <AndroidSigningKeyPass>vsif2008</AndroidSigningKeyPass>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-android|ARM64'">
+	  <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
+	  <AndroidKeyStore>True</AndroidKeyStore>
+	  <AndroidSigningStorePass>vsif2008</AndroidSigningStorePass>
+	  <ApplicationId>com.svp.ttrp</ApplicationId>
+	  <ApplicationTitle>TTRP</ApplicationTitle>
+	  <AndroidSigningKeyAlias>myapp</AndroidSigningKeyAlias>
+	  <AndroidSigningKeyPass>vsif2008</AndroidSigningKeyPass>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-android|AnyCPU'">
-	  <AndroidKeyStore>False</AndroidKeyStore>
+	  <AndroidKeyStore>True</AndroidKeyStore>
 	  <AndroidSigningStorePass>vsif2008</AndroidSigningStorePass>
+	  <ApplicationId>com.svp.ttrp</ApplicationId>
+	  <ApplicationTitle>TTRP</ApplicationTitle>
+	  <AndroidPackageFormat>apk</AndroidPackageFormat>
+	  <AndroidSigningKeyAlias>myapp</AndroidSigningKeyAlias>
+	  <AndroidSigningKeyPass>vsif2008</AndroidSigningKeyPass>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-android|x64'">
+	  <AndroidKeyStore>True</AndroidKeyStore>
+	  <AndroidSigningStorePass>vsif2008</AndroidSigningStorePass>
+	  <ApplicationId>com.svp.ttrp</ApplicationId>
+	  <ApplicationTitle>TTRP</ApplicationTitle>
+	  <AndroidPackageFormat>apk</AndroidPackageFormat>
+	  <AndroidSigningKeyAlias>myapp</AndroidSigningKeyAlias>
+	  <AndroidSigningKeyPass>vsif2008</AndroidSigningKeyPass>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-android|ARM64'">
+	  <AndroidKeyStore>True</AndroidKeyStore>
+	  <AndroidSigningStorePass>vsif2008</AndroidSigningStorePass>
+	  <ApplicationId>com.svp.ttrp</ApplicationId>
+	  <ApplicationTitle>TTRP</ApplicationTitle>
+	  <AndroidPackageFormat>apk</AndroidPackageFormat>
+	  <AndroidSigningKeyAlias>myapp</AndroidSigningKeyAlias>
+	  <AndroidSigningKeyPass>vsif2008</AndroidSigningKeyPass>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-ios|AnyCPU'">
 	  <ApplicationId>com.svp.ttrp</ApplicationId>
 	  <ApplicationTitle>TTRP</ApplicationTitle>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-ios|AnyCPU'">
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-ios|x64'">
+	  <ApplicationId>com.svp.ttrp</ApplicationId>
+	  <ApplicationTitle>TTRP</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-ios|ARM64'">
 	  <ApplicationId>com.svp.ttrp</ApplicationId>
 	  <ApplicationTitle>TTRP</ApplicationTitle>
 	</PropertyGroup>
@@ -68,7 +124,27 @@
 	  <ApplicationTitle>TTRP</ApplicationTitle>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-maccatalyst|x64'">
+	  <ApplicationId>com.svp.ttrp</ApplicationId>
+	  <ApplicationTitle>TTRP</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-maccatalyst|ARM64'">
+	  <ApplicationId>com.svp.ttrp</ApplicationId>
+	  <ApplicationTitle>TTRP</ApplicationTitle>
+	</PropertyGroup>
+
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-windows10.0.19041.0|AnyCPU'">
+	  <ApplicationId>com.svp.ttrp</ApplicationId>
+	  <ApplicationTitle>TTRP</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-windows10.0.19041.0|x64'">
+	  <ApplicationId>com.svp.ttrp</ApplicationId>
+	  <ApplicationTitle>TTRP</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-windows10.0.19041.0|ARM64'">
 	  <ApplicationId>com.svp.ttrp</ApplicationId>
 	  <ApplicationTitle>TTRP</ApplicationTitle>
 	</PropertyGroup>
@@ -78,12 +154,42 @@
 	  <ApplicationTitle>TTRP</ApplicationTitle>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-ios|x64'">
+	  <ApplicationId>com.svp.ttrp</ApplicationId>
+	  <ApplicationTitle>TTRP</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-ios|ARM64'">
+	  <ApplicationId>com.svp.ttrp</ApplicationId>
+	  <ApplicationTitle>TTRP</ApplicationTitle>
+	</PropertyGroup>
+
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-maccatalyst|AnyCPU'">
 	  <ApplicationId>com.svp.ttrp</ApplicationId>
 	  <ApplicationTitle>TTRP</ApplicationTitle>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-maccatalyst|x64'">
+	  <ApplicationId>com.svp.ttrp</ApplicationId>
+	  <ApplicationTitle>TTRP</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-maccatalyst|ARM64'">
+	  <ApplicationId>com.svp.ttrp</ApplicationId>
+	  <ApplicationTitle>TTRP</ApplicationTitle>
+	</PropertyGroup>
+
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-windows10.0.19041.0|AnyCPU'">
+	  <ApplicationId>com.svp.ttrp</ApplicationId>
+	  <ApplicationTitle>TTRP</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-windows10.0.19041.0|x64'">
+	  <ApplicationId>com.svp.ttrp</ApplicationId>
+	  <ApplicationTitle>TTRP</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-windows10.0.19041.0|ARM64'">
 	  <ApplicationId>com.svp.ttrp</ApplicationId>
 	  <ApplicationTitle>TTRP</ApplicationTitle>
 	</PropertyGroup>
