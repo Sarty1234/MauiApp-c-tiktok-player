@@ -42,6 +42,7 @@
 		<AndroidSigningKeyStore>myapp.keystore</AndroidSigningKeyStore>
 		<PlatformTarget>AnyCPU</PlatformTarget>
 		<Platforms>AnyCPU;ARM64;x64</Platforms>
+		<FileVersion>1.0.0.1</FileVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-android|AnyCPU'">
