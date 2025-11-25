@@ -9,6 +9,7 @@ namespace MauiApp_c__tiktok_player
         Random rnd = new Random();
         int randomId = 0;
         string curentvideoID = "7512001022907206968";    // Tutorial video Id
+        string contentFilePath = "unwatched.txt";
 
 
         public MainPage()
@@ -17,6 +18,14 @@ namespace MauiApp_c__tiktok_player
 
             // Sets link to tutorial video
             MainWebView.Source = $"https://www.tiktok.com/embed/{curentvideoID}";
+
+            if (File.Exists(contentFilePath))
+            {
+                foreach (var line in File.ReadLines(contentFilePath))
+                {
+                    videoIds = videoIds.Append(line).ToArray();
+                }
+            }
         }
 
 
@@ -43,6 +52,7 @@ namespace MauiApp_c__tiktok_player
                 // Here it saves curent video Id and deletes it from array to avoid reiterance
                 curentvideoID = videoIds[randomId];
                 videoIds = videoIds.Where(url => url != videoIds[randomId]).ToArray();
+                Task.Run(SaveData);
             }
         }
 
@@ -54,8 +64,6 @@ namespace MauiApp_c__tiktok_player
         /// <param name="e"></param>
         private void ReloadVideoButton_Clicked(object sender, EventArgs e)
         {
-            string link = MainWebView.Source.ToString();
-
             MainWebView.Source = $"https://www.tiktok.com/embed/{curentvideoID}";
         }
 
@@ -74,6 +82,7 @@ namespace MauiApp_c__tiktok_player
                 {
                     if (result.FileName.EndsWith("txt", StringComparison.OrdinalIgnoreCase))
                     {
+                        contentFilePath = result.FullPath;
                         foreach (var line in File.ReadLines(result.FullPath))
                         {
                             if (line.StartsWith("Link: https://www.tiktokv.com/share/video/"))
@@ -92,6 +101,17 @@ namespace MauiApp_c__tiktok_player
             }
 
             return null;
+        }
+
+
+        public void SaveData()
+        {
+            File.WriteAllText(contentFilePath, "");
+
+            foreach (var videoId in videoIds)
+            {
+                File.AppendAllText(contentFilePath, "\nLink: https://www.tiktokv.com/share/video/" + videoId);
+            }
         }
 
         private void MainWebView_Navigating(object sender, WebNavigatingEventArgs e)
