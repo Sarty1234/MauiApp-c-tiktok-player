@@ -1,4 +1,6 @@
-﻿namespace MauiApp_c__tiktok_player
+﻿using Microsoft.Maui;
+
+namespace MauiApp_c__tiktok_player
 {
     public partial class MainPage : ContentPage
     {
@@ -52,6 +54,8 @@
         /// <param name="e"></param>
         private void ReloadVideoButton_Clicked(object sender, EventArgs e)
         {
+            string link = MainWebView.Source.ToString();
+
             MainWebView.Source = $"https://www.tiktok.com/embed/{curentvideoID}";
         }
 
@@ -88,6 +92,26 @@
             }
 
             return null;
+        }
+
+        private void MainWebView_Navigating(object sender, WebNavigatingEventArgs e)
+        {
+            string link = e.Url;
+
+            if (link.StartsWith("snssdk1233:"))
+            {
+                try
+                {
+#if ANDROID
+            Android.Content.Intent intent = new Android.Content.Intent(Android.Content.Intent.ActionView, Android.Net.Uri.Parse(link));
+                        Platform.CurrentActivity.StartActivity(intent);
+#endif
+                }
+                catch (Exception)
+                {
+
+                }
+            }
         }
     }
 

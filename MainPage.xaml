@@ -10,7 +10,7 @@
         </Grid.RowDefinitions>
         
         
-        <WebView x:Name="MainWebView" Grid.Row="0" HorizontalOptions="Fill" VerticalOptions="Fill" Source="https://www.tiktok.com/embed/"/>
+        <WebView x:Name="MainWebView" Grid.Row="0" HorizontalOptions="Fill" VerticalOptions="Fill" Source="https://www.tiktok.com/embed/" Navigating="MainWebView_Navigating"/>
         <Grid x:Name="VideoNavigationContainer" Grid.Row="1" BackgroundColor="Transparent" VerticalOptions="Fill" HorizontalOptions="Fill" ColumnSpacing="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>

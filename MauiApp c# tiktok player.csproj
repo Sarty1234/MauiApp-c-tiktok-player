@@ -39,7 +39,7 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
-		<AndroidSigningKeyStore>myapp.keystore</AndroidSigningKeyStore>
+		<AndroidSigningKeyStore>key.keystore</AndroidSigningKeyStore>
 		<PlatformTarget>AnyCPU</PlatformTarget>
 		<Platforms>AnyCPU;ARM64;x64</Platforms>
 		<FileVersion>1.0.0.1</FileVersion>
@@ -51,7 +51,7 @@
 	  <AndroidSigningStorePass>vsif2008</AndroidSigningStorePass>
 	  <ApplicationId>com.svp.ttrp</ApplicationId>
 	  <ApplicationTitle>TTRP</ApplicationTitle>
-	  <AndroidSigningKeyAlias>myapp</AndroidSigningKeyAlias>
+	  <AndroidSigningKeyAlias>MauiAlias</AndroidSigningKeyAlias>
 	  <AndroidSigningKeyPass>vsif2008</AndroidSigningKeyPass>
 	</PropertyGroup>
 
