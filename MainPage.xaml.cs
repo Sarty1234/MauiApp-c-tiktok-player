@@ -63,6 +63,18 @@ namespace MauiApp_c__tiktok_player
 
 
         /// <summary>
+        /// Function is called when delete video button is pressed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DeleteVideoButton_Clicked(object sender, EventArgs e)
+        {
+            File.WriteAllText(contentFilePath, "");
+            videoIds = [];
+        }
+
+
+        /// <summary>
         /// Function is called when reload button is pressed. It will set link to last embed video Id saved in curentvideoID
         /// </summary>
         /// <param name="sender"></param>

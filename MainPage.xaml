@@ -15,9 +15,11 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" x:Name="ReloadVideoButton" ImageSource="reloadbutton.png" BackgroundColor="#000000" TextTransform="Uppercase" VerticalOptions="Fill" HorizontalOptions="Fill" Clicked="ReloadVideoButton_Clicked" FontAttributes="Bold" FontSize="Subtitle"/>
             <Button Grid.Column="1" x:Name="NextButton" Text="NEXT VIDEO" BackgroundColor="#000000" TextColor="#ffffff" TextTransform="Uppercase" VerticalOptions="Fill" HorizontalOptions="Fill" Clicked="NextVideoButton_Clicked" FontAttributes="Bold" FontSize="Subtitle"/>
+            <Button Grid.Column="2" x:Name="DeleteVideoButton" TextColor="#ffffff" Text="D" BackgroundColor="#000000" TextTransform="Uppercase" VerticalOptions="Fill" HorizontalOptions="Fill" Clicked="DeleteVideoButton_Clicked" FontAttributes="Bold" FontSize="28"/>
         </Grid>
     </Grid>
 
