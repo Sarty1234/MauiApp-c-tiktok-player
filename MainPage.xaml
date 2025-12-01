@@ -8,8 +8,8 @@
             <RowDefinition Height="9*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        
-        
+
+        <Label Text="Count: 111" x:Name="CountLabel" FontSize="20" FontAttributes="Bold" VerticalTextAlignment="Start" HorizontalTextAlignment="Center" ZIndex="1" TextColor="AntiqueWhite"/>
         <WebView x:Name="MainWebView" Grid.Row="0" HorizontalOptions="Fill" VerticalOptions="Fill" Source="https://www.tiktok.com/embed/" Navigating="MainWebView_Navigating"/>
         <Grid x:Name="VideoNavigationContainer" Grid.Row="1" BackgroundColor="Transparent" VerticalOptions="Fill" HorizontalOptions="Fill" ColumnSpacing="0">
             <Grid.ColumnDefinitions>
